@@ -1,17 +1,17 @@
-const controllers = require("../controllers/controllers.courses");
+const courseControllers = require("../controllers/courses.controllers");
 const express = require("express");
 const router = express.Router();
 const validSchema = require("../middlewares/validationSchema");
 
 router
   .route("/")
-  .get(controllers.getAllCourses)
-  .post(validSchema.validSchema, controllers.addCourse);
+  .get(courseControllers.getCourses)
+  .post(validSchema.validSchema, courseControllers.addCourse);
 
 router
   .route("/:courseId")
-  .get(controllers.getCourse)
-  .patch(controllers.updateCourse)
-  .delete(controllers.deleteCourse);
+  .get(courseControllers.getCourse)
+  .patch(courseControllers.updateCourse)
+  .delete(courseControllers.deleteCourse);
 
 module.exports = router;
